@@ -1,4 +1,4 @@
-# Project 3: Spots
+# Project 3: Spots - Image Sharing Site
 
 ### Overview
 
@@ -6,10 +6,11 @@
 - Technologies Used
 - Figma
 - Images
+- Links
 
 **Intro**
 
-This project is made so all the elements are displayed correctly on popular screen sizes. It was our first project using "display: grid;" and the page was designed so that it owul dbe compatible on desktop, tablets, and even small mobile devices.
+This project is made so all the elements are displayed correctly on popular screen sizes. It was our first project using "display: grid;" and the page was designed so that it would be compatible on desktop, tablets, and even small mobile devices.
 
 **Technologies Used**
 
@@ -17,6 +18,7 @@ This project is made so all the elements are displayed correctly on popular scre
 - CSS
   - Grid Layout
   - Media Queries
+  - Responsive Design
 - Figma
 
 **Figma**
@@ -27,4 +29,6 @@ This project is made so all the elements are displayed correctly on popular scre
 
 The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster.
 
-Good luck and have fun!
+**Links**
+
+This project is posted to GitHub Pages: https://walko25.github.io/se_project_spots/
