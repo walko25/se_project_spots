@@ -26,6 +26,7 @@
   font-weight: 500;
   line-height: 1.2;
   margin: 12px 0 0;
+  color: #212121;
 }
 
 .card__like-button {
@@ -35,6 +36,10 @@
   border: none;
   background-color: transparent;
   opacity: 40%;
+  margin: 12px 0 0;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .card__like-button:hover {
