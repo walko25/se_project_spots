@@ -32,3 +32,5 @@ The way you'll do this at work is by exporting images directly from Figma — we
 **Links**
 
 This project is posted to GitHub Pages: https://walko25.github.io/se_project_spots/
+
+Video discription of what I did for this project: https://drive.google.com/file/d/1CJ8Y0u6P_ZuY9wRVbWxX-l-7lOyZ26lk/view?usp=sharing
