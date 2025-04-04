@@ -13,7 +13,7 @@
   padding: 0 16px;
 }
 
-.modal_opened {
+.modal_is-opened {
   visibility: visible;
 }
 
@@ -27,7 +27,7 @@
   border-radius: 8px;
 }
 
-.modal__close-button {
+.modal__close-btn {
   position: absolute;
   top: 32px;
   right: 50px;
@@ -38,7 +38,7 @@
   background-color: #fff;
 }
 
-.modal__close-button:hover {
+.modal__close-btn:hover {
   opacity: 100%;
 }
 
@@ -75,7 +75,7 @@
   line-height: 1;
 }
 
-.modal__submit-button {
+.modal__submit-btn {
   width: 156px;
   padding: 18px 0;
   background-color: #212121;
@@ -111,7 +111,7 @@
   .moadl__label {
     margin-bottom: 24px;
   }
-  .modal__submit-button {
+  .modal__submit-btn {
     width: 100%;
   }
 }
