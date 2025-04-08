@@ -62,11 +62,16 @@
   font-size: 16px;
   line-height: 1.1;
   opacity: 70%;
+  color: #212121;
 }
 
 .modal__input {
   padding: 16px 12px;
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  color: #212121;
+  border-radius: 8px;
 }
 
 .modal__input:hover {
@@ -88,7 +93,7 @@
   border: none;
 }
 
-.modal__close-btn:hover {
+.modal__submit-btn:hover {
   cursor: pointer;
 }
 
@@ -105,7 +110,7 @@
     margin: 10px 0 34px;
   }
 
-  .modal__close-button {
+  .modal__close-btn {
     top: 12px;
     right: 12px;
   }
