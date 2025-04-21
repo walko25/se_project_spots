@@ -15,6 +15,10 @@
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+.modal_type_preview {
+  padding: 0 16px;
+}
+
 .modal_is-opened {
   visibility: visible;
   opacity: 1;
@@ -28,6 +32,48 @@
   position: relative;
   box-sizing: border-box;
   border-radius: 8px;
+}
+
+.modal__image-container {
+  position: relative;
+}
+
+.modal__image {
+  max-width: 80vw;
+  max-height: 80vh;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+.modal__caption {
+  color: #fff;
+  background-color: #212121;
+  display: inline-block;
+  padding: 8px 16px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  background-size: cover;
+  border-radius: 8px;
+}
+
+.modal__close_type_preview {
+  position: absolute;
+  right: -52.5px;
+  width: 40px;
+  height: 40px;
+  opacity: 40%;
+  border: none;
+  background-color: #fff;
+  background-color: transparent;
+  opacity: 1;
+}
+
+.modal__close_type_preview:hover {
+  opacity: 50%;
+  cursor: pointer;
 }
 
 .modal__close-btn {
@@ -127,5 +173,18 @@
   }
   .modal__submit-btn {
     width: 100%;
+  }
+
+  .modal__close_type_preview {
+    top: -48px;
+    right: 0;
+  }
+
+  .modal__image {
+    max-width: unset;
+  }
+
+  .modal__caption {
+    font-size: 16px;
   }
 }
