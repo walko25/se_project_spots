@@ -64,7 +64,7 @@ const cardTemplate = document
 const cardsList = document.querySelector(".cards__list");
 
 function getCardElement(data) {
-  const cardElement = cardTemplate.cloneNode(true);
+  let cardElement = cardTemplate.cloneNode(true);
   const cardTitleEl = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
 
@@ -139,13 +139,13 @@ function handleAddCardSubmit(evt) {
     link: addCardLinkInput.value,
   };
 
-  console.log(addCardNameInput.value);
-  console.log(addCardLinkInput.value);
-
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
 
   closeModal(newPostModal);
+
+  addCardNameInput.value = "";
+  addCardLinkInput.value = "";
 }
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);

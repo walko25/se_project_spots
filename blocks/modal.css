@@ -47,6 +47,10 @@
   border-radius: 8px;
 }
 
+.modal__image:hover {
+  cursor: pointer;
+}
+
 .modal__caption {
   color: #fff;
   background-color: #212121;
@@ -138,15 +142,17 @@
   border-radius: 8px;
   color: #fcf5e5;
   border: none;
+  opacity: 100%;
 }
 
 .modal__submit-btn:hover {
   cursor: pointer;
+  opacity: 80%;
 }
 
 @media screen and (max-width: 627px) {
   .modal {
-    padding: 0 10px;
+    padding: 0;
   }
   .modal__container {
     padding: 12px;
@@ -182,9 +188,14 @@
 
   .modal__image {
     max-width: unset;
+    width: 288px;
   }
 
   .modal__caption {
     font-size: 16px;
+  }
+
+  .modal_type_preview {
+    padding: 0;
   }
 }
