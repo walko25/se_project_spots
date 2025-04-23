@@ -47,10 +47,6 @@
   border-radius: 8px;
 }
 
-.modal__image:hover {
-  cursor: pointer;
-}
-
 .modal__caption {
   color: #fff;
   background-color: #212121;
