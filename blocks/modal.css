@@ -131,6 +131,19 @@
   line-height: 1;
 }
 
+.modal__error {
+  display: block;
+  /*update color and font sizes*/
+}
+
+.modal__error_visible {
+  color: rgba(255, 0, 0, 0.6);
+}
+
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
+}
+
 .modal__submit-btn {
   width: 156px;
   padding: 18px 0;
@@ -139,6 +152,11 @@
   color: #fcf5e5;
   border: none;
   opacity: 100%;
+}
+
+.modal__submit-btn_disabled {
+  background-color: rgba(33, 33, 33, 0.4);
+  cursor: not-allowed;
 }
 
 .modal__submit-btn:hover {
