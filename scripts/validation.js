@@ -11,7 +11,7 @@ const showInputError = (formElement, inputElement, errorMessage) => {
   const errorMessageID = inputElement.id + "-error";
   const errorMessageElement = formElement.querySelector("#" + errorMessageID);
   errorMessageElement.textContent = errorMessage;
-  inputElement.classList.add(settings.inputSelector);
+  inputElement.classList.add(settings.inputErrorClass);
   errorMessageElement.classList.add(settings.errorClass);
 };
 
@@ -19,6 +19,8 @@ const hideInputError = (formElement, inputElement, errorMessage) => {
   const errorMessageID = inputElement.id + "-error";
   const errorMessageElement = formElement.querySelector("#" + errorMessageID);
   errorMessageElement.textContent = "";
+  inputElement.classList.remove(settings.inputErrorClass);
+  errorMessageElement.classList.remove(settings.errorClass);
 };
 
 const checkInputValidity = (formElement, inputElement) => {
@@ -39,8 +41,6 @@ const hasInvalidInput = (inputList, buttonElement) => {
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
     disableButton(buttonElement, settings);
-    // add a modifier class to the button el to make it grey
-    // dont forget the css
   } else {
     buttonElement.disabled = false;
     buttonElement.classList.remove(settings.inactiveButtonClass);

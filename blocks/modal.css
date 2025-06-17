@@ -59,7 +59,7 @@
   border-radius: 8px;
 }
 
-.modal__close_type_preview {
+.modal__close-btn_type_preview {
   position: absolute;
   right: -52.5px;
   width: 40px;
