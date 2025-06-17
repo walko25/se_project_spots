@@ -71,7 +71,7 @@
   opacity: 1;
 }
 
-.modal__close_type_preview:hover {
+.modal__close-btn_type_preview:hover {
   opacity: 50%;
   cursor: pointer;
 }
@@ -188,7 +188,7 @@
     line-height: 16px;
   }
 
-  .moadl__label {
+  .modal__label {
     margin-bottom: 24px;
   }
   .modal__submit-btn {

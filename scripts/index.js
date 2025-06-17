@@ -29,6 +29,15 @@ const initialCards = [
   },
 ];
 
+const settings = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__submit-btn",
+  inactiveButtonClass: "modal__submit-btn_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
@@ -78,22 +87,6 @@ function getCardElement(data) {
     cardLikeBtnEl.classList.toggle("card__like-btn_active");
   });
 
-  const resetValidation = (formElement, settings) => {
-    const inputList = Array.from(
-      formElement.querySelectorAll(settings.inputSelector)
-    );
-    const buttonElement = formElement.querySelector(
-      settings.submitButtonSelector
-    );
-
-    inputList.forEach((inputElement) => {
-      hideInputError(formElement, inputElement);
-      inputElement.classList.remove(settings.inputErrorClass);
-    });
-
-    disableButton(buttonElement, settings);
-  };
-
   const cardDeleteBtnEl = cardElement.querySelector(".card__delete-btn");
   cardDeleteBtnEl.addEventListener("click", () => {
     cardElement.remove();
@@ -119,13 +112,11 @@ function handleEscapeKey(event) {
   }
 }
 
-document.querySelectorAll(".modal").forEach((modal) => {
-  modal.addEventListener("click", (event) => {
-    if (event.target.classList.contains("modal")) {
-      closeModal(modal);
-    }
-  });
-});
+function handleOutsideClick(event) {
+  if (event.target.classList.contains("modal_is-opened")) {
+    closeModal(event.target);
+  }
+}
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
@@ -136,12 +127,29 @@ function openModal(modal) {
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
   document.removeEventListener("keydown", handleEscapeKey);
-  modal.addEventListener("click", handleOutsideClick);
+  modal.removeEventListener("click", handleOutsideClick);
 }
+
+const resetValidation = (formElement, settings) => {
+  const inputList = Array.from(
+    formElement.querySelectorAll(settings.inputSelector)
+  );
+  const buttonElement = formElement.querySelector(
+    settings.submitButtonSelector
+  );
+
+  inputList.forEach((inputElement) => {
+    hideInputError(formElement, inputElement);
+    inputElement.classList.remove(settings.inputErrorClass);
+  });
+
+  toggleButtonState(inputList, buttonElement);
+};
 
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
+  resetValidation(editProfileForm, settings);
   openModal(editProfileModal);
 });
 
@@ -161,10 +169,14 @@ previewModalCloseBtn.addEventListener("click", () => {
   closeModal(previewModal);
 });
 
+const disableButton = (buttonElement, settings) => {
+  buttonElement.disabled = true;
+  buttonElement.classList.add(settings.inactiveButtonClass);
+};
+
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
-  console.log(editProfileForm.classList);
-  resetValidation(addCardFormEl, settings);
+  resetValidation(editProfileForm, settings);
   profileNameEl.textContent = editProfileNameInput.value;
   profileDescriptionEl.textContent = editProfileDescriptionInput.value;
   closeModal(editProfileModal);
