@@ -7,7 +7,7 @@ const settings = {
   errorClass: "modal__error_visible",
 };
 
-const showInputError = (formElement, inputElement, errorMessage) => {
+const showInputError = (settings, formElement, inputElement, errorMessage) => {
   const errorMessageID = inputElement.id + "-error";
   const errorMessageElement = formElement.querySelector("#" + errorMessageID);
   errorMessageElement.textContent = errorMessage;
@@ -15,7 +15,7 @@ const showInputError = (formElement, inputElement, errorMessage) => {
   errorMessageElement.classList.add(settings.errorClass);
 };
 
-const hideInputError = (formElement, inputElement, errorMessage) => {
+const hideInputError = (settings, formElement, inputElement) => {
   const errorMessageID = inputElement.id + "-error";
   const errorMessageElement = formElement.querySelector("#" + errorMessageID);
   errorMessageElement.textContent = "";
@@ -23,7 +23,7 @@ const hideInputError = (formElement, inputElement, errorMessage) => {
   errorMessageElement.classList.remove(settings.errorClass);
 };
 
-const checkInputValidity = (formElement, inputElement) => {
+const checkInputValidity = (settings, formElement, inputElement) => {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage);
   } else {
@@ -31,10 +31,26 @@ const checkInputValidity = (formElement, inputElement) => {
   }
 };
 
-const hasInvalidInput = (inputList, buttonElement) => {
+const hasInvalidInput = (inputList) => {
   return inputList.some((input) => {
     return !input.validity.valid;
   });
+};
+
+const resetValidation = (formElement, settings) => {
+  const inputList = Array.from(
+    formElement.querySelectorAll(settings.inputSelector)
+  );
+  const buttonElement = formElement.querySelector(
+    settings.submitButtonSelector
+  );
+
+  inputList.forEach((inputElement) => {
+    hideInputError(formElement, inputElement);
+    inputElement.classList.remove(settings.inputErrorClass);
+  });
+
+  toggleButtonState(inputList, buttonElement);
 };
 
 const toggleButtonState = (inputList, buttonElement) => {
