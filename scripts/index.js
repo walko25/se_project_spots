@@ -139,10 +139,6 @@ newPostBtn.addEventListener("click", function () {
   openModal(newPostModal);
 });
 
-newPostCloseBtn.addEventListener("click", function () {
-  closeModal(newPostModal);
-});
-
 previewModalCloseBtn.addEventListener("click", () => {
   closeModal(previewModal);
 });

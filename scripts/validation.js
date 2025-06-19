@@ -25,9 +25,14 @@ const hideInputError = (settings, formElement, inputElement) => {
 
 const checkInputValidity = (settings, formElement, inputElement) => {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
+    showInputError(
+      settings,
+      formElement,
+      inputElement,
+      inputElement.validationMessage
+    );
   } else {
-    hideInputError(formElement, inputElement);
+    hideInputError(settings, formElement, inputElement);
   }
 };
 
@@ -46,14 +51,13 @@ const resetValidation = (formElement, settings) => {
   );
 
   inputList.forEach((inputElement) => {
-    hideInputError(formElement, inputElement);
-    inputElement.classList.remove(settings.inputErrorClass);
+    hideInputError(settings, formElement, inputElement);
   });
 
-  toggleButtonState(inputList, buttonElement);
+  toggleButtonState(settings, inputList, buttonElement);
 };
 
-const toggleButtonState = (inputList, buttonElement) => {
+const toggleButtonState = (settings, inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
     disableButton(buttonElement, settings);
   } else {
@@ -79,8 +83,8 @@ const setEventListeners = (formElement, settings) => {
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
-      checkInputValidity(formElement, inputElement);
-      toggleButtonState(inputList, buttonElement, settings);
+      checkInputValidity(settings, formElement, inputElement);
+      toggleButtonState(settings, inputList, buttonElement);
     });
   });
 };
