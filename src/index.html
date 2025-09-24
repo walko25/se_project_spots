@@ -6,32 +6,47 @@
     <meta name="author" content="Walker Owen" />
     <meta name="description" content="Introducing Bessie Coleman" />
     <meta name="keywords" content="spots, social, media, project" />
-    <link rel="stylesheet" href="./pages/index.css" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>Spots</title>
   </head>
   <body>
     <div class="page">
       <header class="header">
-        <img src="./images/logo.svg" alt="logo image" class="header__logo" />
+        <img
+          src="<%=require('./images/logo.svg')%>"
+          alt="logo image"
+          class="header__logo"
+        />
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="./images/avatar.jpg"
-            alt="Bessie Coleman"
-            class="profile__avitar"
-          />
+          <div class="profile__avatar-container">
+            <button class="profile__avatar-btn">
+              <img
+                src="<%=require('./images/pencil-light.svg')%>"
+                alt="Pencil Icon"
+                class="profile__pencil-icon"
+              />
+            </button>
+            <img
+              src="<%=require('./images/avatar.jpg')%>"
+              alt="Bessie Coleman"
+              class="profile__avatar"
+            />
+          </div>
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
             <button type="button" class="profile__edit-btn">
-              <img src="./images/pencil.svg" alt="Pencil Icon" />Edit Profile
+              <img
+                src="<%=require('./images/pencil.svg')%>"
+                alt="Pencil Icon"
+              />Edit Profile
             </button>
           </div>
           <button type="button" class="profile__add-btn">
             <img
-              src="./images/plus-icon.svg"
+              src="<%=require('./images/plus-icon.svg')%>"
               alt="Plus Icon"
               class="profile__add-btn-plus"
             />New Post
@@ -58,7 +73,10 @@
       <div class="modal" id="edit-profile-modal">
         <div class="modal__container">
           <button type="button" class="modal__close-btn">
-            <img src="./images/modal-close-btn.svg" alt="Close Icon" />
+            <img
+              src="<%=require('./images/modal-close-btn.svg')%>"
+              alt="Close Icon"
+            />
           </button>
           <h2 class="modal__title">Edit profile</h2>
           <form name="edit-profile" class="modal__form" novalidate>
@@ -98,10 +116,13 @@
       <div class="modal" id="new-post-modal">
         <div class="modal__container">
           <button type="button" class="modal__close-btn">
-            <img src="./images/modal-close-btn.svg" alt="Close Icon" />
+            <img
+              src="<%=require('./images/modal-close-btn.svg')%>"
+              alt="Close Icon"
+            />
           </button>
           <h2 class="modal__title">New post</h2>
-          <form class="modal__form" novalidate>
+          <form name="new-post" class="modal__form" novalidate>
             <label for="card-image-input" class="modal__label">
               Image link
               <input
@@ -133,15 +154,65 @@
       <div class="modal modal_type_preview" id="preview-modal">
         <div class="modal__image-container">
           <button type="button" class="modal__close-btn_type_preview">
-            <img src="./images/white-close.svg" alt="Close Icon" />
+            <img
+              src="<%=require('./images/white-close.svg')%>"
+              alt="Close Icon"
+            />
           </button>
           <img class="modal__image" src="#" alt="" />
           <p class="modal__caption">Golden Gate Bridge</p>
         </div>
       </div>
     </div>
-
-    <script defer src="./scripts/index.js"></script>
-    <script defer src="./scripts/validation.js"></script>
+    <div class="modal" id="edit-avatar-modal">
+      <div class="modal__container">
+        <button type="button" class="modal__close-btn">
+          <img
+            src="<%=require('./images/modal-close-btn.svg')%>"
+            alt="Close Icon"
+          />
+        </button>
+        <h2 class="modal__title">Edit avatar</h2>
+        <form
+          name="edit-avatar"
+          class="modal__form"
+          id="edit-avatar-form"
+          novalidate
+        >
+          <label for="profile-avatar-input" class="modal__label">
+            Avatar
+            <input
+              id="profile-avatar-input"
+              type="url"
+              class="modal__input"
+              placeholder="avatar goes here"
+              name="avatar"
+              required
+            />
+            <span id="profile-avatar-input-error" class="modal__error"></span>
+          </label>
+          <button type="submit" class="modal__submit-btn">Save</button>
+        </form>
+      </div>
+    </div>
+    <div class="modal" id="delete-modal">
+      <div class="modal__container">
+        <button type="button" class="modal__delete-close-btn">
+          <img
+            src="<%=require('./images/white-close.svg')%>"
+            alt="Close Icon"
+          />
+        </button>
+        <form class="modal__form" novalidate>
+          <h2 class="modal__delete-title">
+            Are you sure you want to delete this image?
+          </h2>
+          <div class="modal__buttons">
+            <button type="submit" class="modal__delete-btn">Delete</button>
+            <button type="button" class="modal__submit-btn">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
