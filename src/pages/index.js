@@ -58,6 +58,7 @@ const deleteModal = document.querySelector("#delete-modal");
 const deleteModalCloseBtn = deleteModal.querySelector(
   ".modal__delete-close-btn"
 );
+
 const deleteForm = deleteModal.querySelector(".modal__form");
 const deleteSubmitBtn = deleteModal.querySelector(".modal__submit-btn");
 const deleteCloselBtn = deleteModal.querySelector(".modal__delete-close-btn");
@@ -73,7 +74,10 @@ const closeButtons = document.querySelectorAll(".modal__close-btn");
 api
   .getAppInfo()
   .then(([user, cards]) => {
-    console.log(cards);
+    profileNameEl.textContent = user.name;
+    profileDescriptionEl.textContent = user.about;
+    document.querySelector(".profile__avatar").src = user.avatar;
+
     cards.forEach((item) => {
       const cardElement = getCardElement(item);
       cardsList.append(cardElement);
@@ -204,6 +208,16 @@ newPostBtn.addEventListener("click", function () {
   openModal(newPostModal);
 });
 
+avatarModalBtn.addEventListener("click", function () {
+  avatarInput.value = "";
+  resetValidation(avatarForm, validationConfig);
+  openModal(avatarModal);
+});
+
+avatarModalCloseBtn.addEventListener("click", () => {
+  closeModal(avatarModal);
+});
+
 previewModalCloseBtn.addEventListener("click", () => {
   closeModal(previewModal);
 });
@@ -259,6 +273,30 @@ function handleAddCardSubmit(evt) {
       setBtnText(submitBtn, false), "Saving...", "Save";
     });
 }
+
+function editAvatarInfo(evt) {
+  evt.preventDefault();
+
+  const submitBtn = evt.submitter;
+  setBtnText(submitBtn, true, "Saving...", "Save");
+
+  api
+    .editAvatarInfo(avatarInput.value)
+    .then((res) => {
+      document.querySelector(".profile__avatar").src = res.avatar;
+      console.log("Avatar updated to:", res.avatar);
+      closeModal(avatarModal);
+      evt.target.reset();
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+    .finally(() => {
+      setBtnText(submitBtn, false, "Saving...", "Save");
+    });
+}
+
+avatarForm.addEventListener("submit", editAvatarInfo);
 
 addCardFormEl.addEventListener("submit", handleAddCardSubmit);
 
