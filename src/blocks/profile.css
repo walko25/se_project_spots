@@ -10,7 +10,7 @@
 
 .profile__avatar-btn {
   position: absolute;
-  width: 100%;
+  width: 90%;
   height: 100%;
   cursor: pointer;
   display: flex;
@@ -18,12 +18,12 @@
   align-items: flex-end;
   visibility: hidden;
   color: #fff;
-  padding: 0 0 12px;
   gap: 5px;
   border: hidden;
   opacity: 0;
-  background: transparent;
-  bottom: 12px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  padding: 0 0 12px;
 }
 
 /* TODO - finish styles */

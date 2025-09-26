@@ -242,7 +242,7 @@ function handleEditProfileSubmit(evt) {
       console.error(err);
     })
     .finally(() => {
-      setBtnText(submitBtn, false, "Saving...", "Save");
+      setBtnText(submitBtn, false, "Save", "Saving...");
     });
 }
 
@@ -250,7 +250,7 @@ function handleAddCardSubmit(evt) {
   evt.preventDefault();
 
   const submitBtn = evt.submitter;
-  setBtnText(submitBtn, true, "Saving...", "Save");
+  setBtnText(submitBtn, true, "Save", "Saving...");
 
   const inputValues = {
     name: addCardNameInput.value,
@@ -270,7 +270,7 @@ function handleAddCardSubmit(evt) {
       console.error(err);
     })
     .finally(() => {
-      setBtnText(submitBtn, false), "Saving...", "Save";
+      setBtnText(submitBtn, false), "Save", "Saving...";
     });
 }
 
@@ -278,7 +278,7 @@ function editAvatarInfo(evt) {
   evt.preventDefault();
 
   const submitBtn = evt.submitter;
-  setBtnText(submitBtn, true, "Saving...", "Save");
+  setBtnText(submitBtn, true, "Save", "Saving...");
 
   api
     .editAvatarInfo(avatarInput.value)
@@ -292,7 +292,7 @@ function editAvatarInfo(evt) {
       console.error(err);
     })
     .finally(() => {
-      setBtnText(submitBtn, false, "Saving...", "Save");
+      setBtnText(submitBtn, false, "Save", "Saving...");
     });
 }
 
